@@ -1,0 +1,188 @@
+//colors
+$color_celeste_approx: #cecece;
+$color_mirage_approx: #1d1e21;
+$color_indigo_approx: #5c5edc;
+$white: #fff;
+$color_scarpa_flow_approx: #595a5f;
+
+//fonts
+$font_0: bpicons;
+$font_1: Avenir Next;
+$font_2: Avenir;
+$font_3: Helvetica Neue;
+$font_4: Lato;
+$font_5: Segoe UI;
+$font_6: Helvetica;
+$font_7: Arial;
+$font_8: sans-serif;
+
+//urls
+$url_0: url(../fonts/bpicons/bpicons.eot);
+$url_1: url(../fonts/bpicons/bpicons.eot?#iefix);
+$url_2: url(../fonts/bpicons/bpicons.woff);
+$url_3: url(../fonts/bpicons/bpicons.ttf);
+$url_4: url(../fonts/bpicons/bpicons.svg#bpicons);
+
+@font-face {
+	font-family: $font_0;
+	font-weight: normal;
+	font-style: normal;
+	src: $url_0;
+	src: $url_1 format('embedded-opentype'), $url_2 format('woff'), $url_3 format('truetype'), $url_4 format('svg');
+}
+.cf {
+	&:before {
+		content: ' ';
+		display: table;
+	}
+	&:after {
+		content: ' ';
+		display: table;
+		clear: both;
+	}
+}
+body {
+	font-family: $font_1, $font_2, $font_3, $font_4, $font_5, $font_6, $font_7, $font_8;
+	margin: 0;
+	color: $color_celeste_approx;
+	background: $color_mirage_approx;
+}
+a {
+	text-decoration: none;
+	color: $color_indigo_approx;
+	outline: none;
+	&:hover {
+		color: $white;
+	}
+}
+.bp-header {
+	padding: 6em 10vw 2em;
+}
+.bp-header__title {
+	font-size: 2.125em;
+	font-weight: 700;
+	line-height: 1.3;
+	margin: 0;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: $white;
+}
+.bp-header__desc {
+	font-size: 0.95em;
+	margin: 0.5em 0 1em;
+	padding: 0;
+}
+.bp-header__present {
+	font-size: 0.85em;
+	font-weight: 700;
+	position: relative;
+	z-index: 100;
+	display: block;
+	padding: 0 0 0.6em 0.1em;
+	letter-spacing: 0.5em;
+	text-transform: uppercase;
+	color: $color_indigo_approx;
+}
+.bp-tooltip {
+	&:after {
+		font-size: 50%;
+		font-size: 75%;
+		position: relative;
+		top: -8px;
+		left: -12px;
+		width: 30px;
+		height: 30px;
+	}
+	&:hover:before {
+		content: attr(data-content);
+		font-size: 110%;
+		font-weight: 700;
+		line-height: 1.2;
+		position: absolute;
+		left: auto;
+		margin-left: 4px;
+		padding: 0.8em 1em;
+		text-align: left;
+		text-indent: 0;
+		letter-spacing: 0;
+		text-transform: none;
+		color: $white;
+		background: $color_indigo_approx;
+	}
+}
+.bp-nav {
+	margin: 0 0 0 -0.75em;
+	.bp-icon:after {
+		line-height: 2.4;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		text-indent: 0;
+	}
+	a:hover:after {
+		color: $white;
+	}
+}
+.bp-nav__item {
+	position: relative;
+	display: inline-block;
+	width: 2.5em;
+	height: 2.5em;
+	margin: 0 0.1em;
+	text-align: left;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 50%;
+	> span {
+		display: none;
+	}
+	&:hover {
+		background: $color_indigo_approx;
+		&:before {
+			content: attr(data-info);
+			font-size: 0.85em;
+			font-weight: bold;
+			position: absolute;
+			top: 120%;
+			left: 0;
+			width: 600%;
+			text-align: left;
+			pointer-events: none;
+			color: $color_scarpa_flow_approx;
+		}
+	}
+}
+@media screen and(max-width: 40em) {
+	.bp-header {
+		padding: 50px 20px 1em;
+	}
+	.bp-header__title {
+		font-size: 1.8em;
+	}
+}
+.bp-icon:after {
+	font-family: $font_0;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	text-align: center;
+	text-transform: none;
+	color: $color_indigo_approx;
+	speak: none;
+}
+.bp-icon--next:after {
+	content: '\e000';
+}
+.bp-icon--drop:after {
+	content: '\e001';
+}
+.bp-icon--archive:after {
+	content: '\e002';
+}
+.bp-icon--about:after {
+	content: '\e003';
+}
+.bp-icon--prev:after {
+	content: '\e004';
+}
